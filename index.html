@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bauprodukte Nachweismanager – Brandschutz</title>
+  <meta name="description" content="Web-App für Prüfsachverständige Brandschutz: Nachweise und Dokumentationen für Bauprodukte und Bauarten auf der Baustelle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="app-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🔥</span>
+          <div>
+            <h1>Nachweismanager</h1>
+            <p class="subtitle">Bauprodukte & Bauarten im Brandschutz</p>
+          </div>
+        </div>
+        <div class="search-wrapper" id="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="global-search" placeholder="Produkt suchen… (z.B. EI 30, Kabelabschottung)" autocomplete="off" />
+          <div id="search-results" class="search-dropdown"></div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="hero-section">
+        <h2>Welche Nachweise brauchen Sie auf der Baustelle?</h2>
+        <p>Wählen Sie eine Kategorie oder suchen Sie direkt nach einem Bauprodukt.</p>
+      </section>
+
+      <section id="categories-grid" class="categories-grid"></section>
+
+      <section id="products-view" class="products-view hidden">
+        <div class="breadcrumb" id="breadcrumb"></div>
+        <div class="products-list" id="products-list"></div>
+      </section>
+
+      <section id="detail-view" class="detail-view hidden">
+        <div class="breadcrumb" id="detail-breadcrumb"></div>
+        <div class="detail-card" id="detail-card"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Rechtsgrundlagen: BauPVo (EU 305/2011) · MVV TB · MBO · MLAR</p>
+      <p class="disclaimer">Dieses Tool dient der Orientierung. Verbindlich sind die jeweils geltenden Landesbauordnungen und Verwaltungsvorschriften.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
