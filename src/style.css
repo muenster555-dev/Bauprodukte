@@ -197,6 +197,28 @@ main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 }
 .docs-list li::before { content: '✓'; color: var(--green); font-weight: 700; }
 
+/* MVV TB Zusatzanforderungen */
+.mvvtb-section {
+  margin-top: 1.5rem; padding: 1rem 1.2rem;
+  background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15);
+  border-radius: var(--radius-sm); border-left: 3px solid var(--blue);
+}
+.mvvtb-section h4 {
+  font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem;
+  color: var(--blue);
+}
+.mvvtb-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.mvvtb-list li {
+  padding: 0.4rem 0.65rem; background: rgba(59,130,246,0.05);
+  border: 1px solid rgba(59,130,246,0.1); border-radius: 5px;
+  font-size: 0.83rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.mvvtb-list li::before { content: '▸'; color: var(--blue); font-weight: 700; font-size: 0.75rem; }
+.mvvtb-ref {
+  margin-top: 0.6rem; font-size: 0.75rem; color: var(--text-muted);
+  padding-top: 0.5rem; border-top: 1px solid rgba(59,130,246,0.1);
+}
+
 /* Hinweis */
 .hinweis-box {
   margin-top: 1.5rem; padding: 1rem 1.2rem;

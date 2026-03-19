@@ -111,6 +111,14 @@ function renderDetail(productId) {
       </ul>
     </div>
 
+    ${p.mvvtbZusatz && p.mvvtbZusatz.length > 0 ? `<div class="mvvtb-section">
+      <h4>📋 MVV TB Zusatzanforderungen</h4>
+      <ul class="mvvtb-list">
+        ${p.mvvtbZusatz.map(z => `<li>${z}</li>`).join('')}
+      </ul>
+      ${p.mvvtbRef ? `<div class="mvvtb-ref">Regelwerk: ${p.mvvtbRef}</div>` : ''}
+    </div>` : ''}
+
     ${p.hinweis ? `<div class="hinweis-box">
       <div class="hw-label">⚠ Praxis-Hinweis</div>
       ${p.hinweis}
