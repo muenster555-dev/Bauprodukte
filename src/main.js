@@ -6,9 +6,9 @@ let state = { view: 'categories', categoryId: null, productId: null };
 
 // === Template Downloads Mapping ===
 const documentTemplates = {
-  "ÜE Fachunternehmer": "/downloads/ue-fachunternehmer.html",
-  "ÜE Errichter": "/downloads/ue-fachunternehmer.html",
-  "Montagebescheinigung": "/downloads/montagebescheinigung.html"
+  "ÜE Fachunternehmer": "downloads/ue-fachunternehmer.html",
+  "ÜE Errichter": "downloads/ue-fachunternehmer.html",
+  "Montagebescheinigung": "downloads/montagebescheinigung.html"
 };
 
 // === DOM refs ===
