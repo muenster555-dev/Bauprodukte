@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übereinstimmungserklärung / Fachunternehmererklärung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { font-size: 16pt; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px; }
+        h2 { font-size: 12pt; margin-top: 25px; margin-bottom: 10px; }
+        .row { display: flex; margin-bottom: 15px; }
+        .col { flex: 1; padding-right: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; font-size: 10pt; }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            resize: vertical;
+        }
+        .checkbox-row { margin-bottom: 15px; }
+        .checkbox-row label { display: inline-block; font-weight: normal; margin-left: 5px; }
+        .signature-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .signature-line {
+            border-top: 1px solid #000;
+            width: 45%;
+            text-align: center;
+            padding-top: 5px;
+            font-size: 10pt;
+        }
+        .info-text {
+            font-size: 9pt;
+            color: #555;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .print-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #3b82f6;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 12pt;
+        }
+        .print-btn:hover { background: #2563eb; }
+        
+        @media print {
+            .print-btn { display: none; }
+            body { padding: 0; }
+            input[type="text"], textarea { border: none; border-bottom: 1px dotted #000; padding: 0; background: transparent; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Formular ausdrucken / als PDF speichern</button>
+
+    <h1>Übereinstimmungserklärung / Fachunternehmererklärung</h1>
+    <p>gemäß den Vorgaben der Landesbauordnungen (LBO) bzw. Musterbauordnung (MBO) sowie der Muster-Verwaltungsvorschrift Technische Baubestimmungen (MVV TB).</p>
+
+    <h2>1. Angaben zum Bauvorhaben</h2>
+    <div class="row">
+        <div class="col">
+            <label>Bezeichnung des Bauvorhabens / Objekt:</label>
+            <input type="text" placeholder="z. B. Neubau Bürokomplex">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Straße, Hausnummer:</label>
+            <input type="text">
+        </div>
+        <div class="col">
+            <label>PLZ, Ort:</label>
+            <input type="text">
+        </div>
+    </div>
+
+    <h2>2. Angaben zum errichtenden Unternehmen (Fachunternehmer)</h2>
+    <div class="row">
+        <div class="col">
+            <label>Firmenname:</label>
+            <input type="text">
+        </div>
+        <div class="col">
+            <label>Ansprechpartner / Sachkundiger:</label>
+            <input type="text">
+        </div>
+    </div>
+
+    <h2>3. Angaben zum eingebauten Bauprodukt / zur Bauart</h2>
+    <div class="row">
+        <div class="col">
+            <label>Bezeichnung des Bauprodukts / der Bauart (z.B. Abschottung, Brandschutztür):</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Hersteller / Systemgeber:</label>
+            <input type="text">
+        </div>
+        <div class="col">
+            <label>Verwendbarkeitsnachweis (z.B. abZ / aBG / abP / ETA Nr.):</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Einbauort(e) / Bauteile (z. B. EG Flur, Wand Achse A):</label>
+            <textarea rows="3"></textarea>
+        </div>
+    </div>
+
+    <h2>4. Erklärung der Übereinstimmung</h2>
+    <div class="checkbox-row">
+        <input type="checkbox" id="check1" checked>
+        <label for="check1">Hiermit bestätigen wir (der Unterzeichner), dass das oben genannte Bauprodukt / die Bauart in Bezug auf alle Einzelheiten fachgerecht und unter Einhaltung aller Bestimmungen des vorgenannten Verwendbarkeitsnachweises (Zulassung/Genehmigung/Prüfzeugnis) sowie der dazugehörigen Einbau- und Montageanleitungen des Herstellers hergestellt bzw. eingebaut wurde.</label>
+    </div>
+    
+    <div class="checkbox-row">
+        <input type="checkbox" id="check2">
+        <label for="check2">Abweichungen vom Verwendbarkeitsnachweis liegen <strong>nicht</strong> vor.</label>
+    </div>
+    
+    <div class="checkbox-row">
+        <input type="checkbox" id="check3">
+        <label for="check3">Unwesentliche Abweichungen liegen vor und wurden vom genehmigenden Prüfinstitut / Hersteller als nicht wesentlich bewertet (Nachweis liegt bei).</label>
+    </div>
+
+    <div class="signature-box">
+        <div class="signature-line">
+            <input type="text" style="text-align: center; margin-bottom: 5px; width: 80%; border:none; border-bottom: 1px dotted #ccc;" placeholder="Ort, Datum">
+            <br>Ort, Datum
+        </div>
+        <div class="signature-line">
+            <br><br>
+            Stempel & rechtsverbindliche Unterschrift<br>(Fachunternehmer / Sachkundiger)
+        </div>
+    </div>
+
+    <div class="info-text">
+        <strong>Hinweis für den Bauherrn/Betreiber:</strong> Diese Bescheinigung ist zu den Bauakten zu nehmen und auf Verlangen der Bauaufsichtsbehörde oder anderen Prüforganen (z. B. Prüfsachverständiger für Brandschutz) vorzulegen.
+    </div>
+
+</body>
+</html>

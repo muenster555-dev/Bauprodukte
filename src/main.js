@@ -4,6 +4,13 @@ import { categories, products } from './data/products.js';
 // === State ===
 let state = { view: 'categories', categoryId: null, productId: null };
 
+// === Template Downloads Mapping ===
+const documentTemplates = {
+  "ÜE Fachunternehmer": "/downloads/ue-fachunternehmer.html",
+  "ÜE Errichter": "/downloads/ue-fachunternehmer.html",
+  "Montagebescheinigung": "/downloads/montagebescheinigung.html"
+};
+
 // === DOM refs ===
 const $ = (s) => document.querySelector(s);
 const heroSection = $('#hero-section');
@@ -107,7 +114,19 @@ function renderDetail(productId) {
     <div class="docs-section">
       <h4>✅ Erforderliche Dokumente auf der Baustelle</h4>
       <ul class="docs-list">
-        ${p.docs.map(d => `<li>${d}</li>`).join('')}
+        ${p.docs.map(d => {
+          const dlLink = documentTemplates[d];
+          if (dlLink) {
+            return `<li class="has-download">
+              <span class="doc-name">${d}</span>
+              <a href="${dlLink}" class="download-btn" target="_blank" title="${d} Muster ansehen/drucken">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Muster
+              </a>
+            </li>`;
+          }
+          return `<li>${d}</li>`;
+        }).join('')}
       </ul>
     </div>
 

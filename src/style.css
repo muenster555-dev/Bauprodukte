@@ -196,6 +196,15 @@ main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
   font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;
 }
 .docs-list li::before { content: '✓'; color: var(--green); font-weight: 700; }
+.docs-list li.has-download { justify-content: space-between; padding-right: 0.5rem; }
+.docs-list li.has-download .doc-name { flex: 1; }
+.download-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.6rem;
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 5px;
+  color: var(--text-primary); font-size: 0.72rem; text-decoration: none; font-weight: 600;
+  transition: var(--transition);
+}
+.download-btn:hover { background: var(--blue); border-color: var(--blue); color: white; }
 
 /* MVV TB Zusatzanforderungen */
 .mvvtb-section {

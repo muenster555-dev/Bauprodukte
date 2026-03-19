@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montagebescheinigung Brandschutz</title>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { font-size: 16pt; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px; text-transform: uppercase; }
+        h2 { font-size: 12pt; margin-top: 25px; margin-bottom: 10px; background: #f0f0f0; padding: 5px; border-left: 4px solid #333; }
+        .row { display: flex; margin-bottom: 12px; }
+        .col { flex: 1; padding-right: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; font-size: 9.5pt; color: #444; }
+        input[type="text"] { width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box; font-family: inherit; font-size: 10pt; }
+        .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        .checkbox-item { display: flex; align-items: flex-start; }
+        .checkbox-item input { margin-top: 3px; margin-right: 8px; }
+        .signature-box { display: flex; justify-content: space-between; margin-top: 50px; }
+        .signature-line { border-top: 1px solid #000; width: 45%; text-align: center; padding-top: 5px; font-size: 10pt; }
+        .print-btn {
+            display: block; width: 100%; padding: 15px; background: #10b981; color: white;
+            text-align: center; text-decoration: none; font-weight: bold; border-radius: 8px;
+            margin-bottom: 30px; border: none; cursor: pointer; font-size: 12pt;
+        }
+        .print-btn:hover { background: #059669; }
+        @media print { .print-btn { display: none; } body { padding: 0; } input[type="text"] { border: none; border-bottom: 1px dotted #000; padding: 0 0 2px 0; background: transparent; } }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Montagebescheinigung drucken / als PDF speichern</button>
+
+    <h1>Montagebescheinigung Brandschutz</h1>
+
+    <h2>1. Projektdaten</h2>
+    <div class="row">
+        <div class="col"><label>Bauvorhaben / Gebäude:</label><input type="text"></div>
+    </div>
+    <div class="row">
+        <div class="col"><label>Bauteil / Einbauort (z.B. Decke über EG, Flur):</label><input type="text"></div>
+        <div class="col"><label>Positions-/Raumnummer:</label><input type="text"></div>
+    </div>
+
+    <h2>2. Produktdaten</h2>
+    <div class="row">
+        <div class="col"><label>Installiertes Bauprodukt / System (z. B. Brandschutzklappe Typ X, Rohrabschottung System Y):</label><input type="text"></div>
+    </div>
+    <div class="row">
+        <div class="col"><label>Hersteller:</label><input type="text"></div>
+        <div class="col"><label>Zulassung / Prüfzeugnis / ETA Nr.:</label><input type="text"></div>
+    </div>
+    <div class="row">
+        <div class="col"><label>Feuerwiderstandsklasse (z.B. EI 90):</label><input type="text"></div>
+    </div>
+
+    <h2>3. Bestätigung der fachgerechten Montage</h2>
+    <p style="font-size: 10pt; margin-bottom: 15px;">Der Unterzeichner bestätigt hiermit die ordnungsgemäße und mängelfreie Ausführung folgender Punkte gemäß den Herstellervorgaben und dem Verwendbarkeitsnachweis:</p>
+    
+    <div class="checkbox-grid">
+        <div class="checkbox-item"><input type="checkbox" checked><label>Einbau in zulässige Wand-/Deckenart (Massiv/Leichtbau)</label></div>
+        <div class="checkbox-item"><input type="checkbox" checked><label>Erforderliche Abstände (zu anderen Bauteilen/Brandabschnitten) eingehalten</label></div>
+        <div class="checkbox-item"><input type="checkbox" checked><label>Zugelassene Befestigungsmittel / Aufhängungen verwendet</label></div>
+        <div class="checkbox-item"><input type="checkbox" checked><label>Ringspalt ordnungsgemäß und mit zulässigen Materialien verschlossen</label></div>
+        <div class="checkbox-item"><input type="checkbox" checked><label>Kennzeichnungsschild dauerhaft neben dem Produkt angebracht (falls gefordert)</label></div>
+        <div class="checkbox-item"><input type="checkbox" checked><label>Funktionsprüfung erfolgreich durchgeführt (bei beweglichen Teilen, z.B. BSK/Türen)</label></div>
+    </div>
+
+    <h2>4. Ausführendes Unternehmen (Monteur)</h2>
+    <div class="row">
+        <div class="col"><label>Firmenname:</label><input type="text"></div>
+        <div class="col"><label>Name des Monteurs / Sachkundigen:</label><input type="text"></div>
+    </div>
+
+    <div class="signature-box">
+        <div class="signature-line">
+            <input type="text" style="text-align: center; margin-bottom: 5px; width: 80%; border:none; border-bottom: 1px dotted #ccc;" placeholder="Ort, Datum">
+            <br>Ort, Datum
+        </div>
+        <div class="signature-line">
+            <br><br>
+            Unterschrift (Monteur / Fachbauleiter)
+        </div>
+    </div>
+
+</body>
+</html>
