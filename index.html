@@ -13,13 +13,13 @@
   <div id="app">
     <header id="app-header">
       <div class="header-content">
-        <div class="logo">
-          <span class="logo-icon">🔥</span>
+        <a class="logo" style="cursor:pointer; text-decoration:none;" onclick="window.__nav('categories')">
+          <img src="./nees_logo.svg" alt="Nees Ingenieure" class="logo-img" />
           <div>
             <h1>Nachweismanager</h1>
             <p class="subtitle">Bauprodukte & Bauarten im Brandschutz</p>
           </div>
-        </div>
+        </a>
         <div class="search-wrapper" id="search-wrapper">
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input type="text" id="global-search" placeholder="Produkt suchen… (z.B. EI 30, Kabelabschottung)" autocomplete="off" />
