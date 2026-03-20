@@ -147,7 +147,7 @@ function renderDetail(productId) {
     </div>` : ''}
 
     ${(() => {
-      const relKnow = knowledgeItems.filter(k => k.related && k.related.includes(p.id));
+      const relKnow = knowledgeItems.filter(k => (k.related && k.related.includes(p.id)) || (p.knowledge && p.knowledge.includes(k.id)));
       if (relKnow.length > 0) {
         return `<div class="mvvtb-section knowledge-links-section" style="border-color: #8b5cf6;">
           <h4 style="color: #a78bfa;">📘 Brandschutz-Wissen</h4>
@@ -203,6 +203,8 @@ function renderKnowledgeDetail(itemId) {
     <span class="sep">›</span>
     <span class="current">${item.name}</span>`;
 
+  const relatedProds = products.filter(p => (item.related && item.related.includes(p.id)) || (p.knowledge && p.knowledge.includes(item.id)));
+
   $('#knowledge-detail-card').innerHTML = `
     <div class="detail-header">
       <h3 style="color:#a78bfa;">${item.name}</h3>
@@ -228,7 +230,7 @@ function renderKnowledgeDetail(itemId) {
       <strong>Regelwerk / Normen:</strong> ${item.norms}
     </div>
 
-    ${item.related && item.related.length > 0 ? `
+    ${relatedProds.length > 0 ? `
     <div class="mvvtb-section" style="margin-top:2rem; border-color: rgba(255,255,255,0.1);">
       <h4>🔗 Verbundene Bauprodukte & Bauarten</h4>
       <div class="related-list" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem;">
@@ -249,7 +251,7 @@ function navigateTo(view, catId = null, productId = null) {
   applyState();
 }
 
-window.__nav = (view, catId) => navigateTo(view, catId);
+window.__nav = (view, catId, productId) => navigateTo(view, catId, productId);
 
 function handlePopState(e) {
   if (e.state) { state = e.state; }
