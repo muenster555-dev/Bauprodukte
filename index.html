@@ -25,6 +25,7 @@
           <input type="text" id="global-search" placeholder="Produkt suchen… (z.B. EI 30, Kabelabschottung)" autocomplete="off" />
           <div id="search-results" class="search-dropdown"></div>
         </div>
+        <a class="nav-link" style="cursor:pointer; margin-left:1rem; font-weight:500;" onclick="window.__nav('knowledge')">📘 Brandschutz-Wissen</a>
       </div>
     </header>
 
@@ -44,6 +45,16 @@
       <section id="detail-view" class="detail-view hidden">
         <div class="breadcrumb" id="detail-breadcrumb"></div>
         <div class="detail-card" id="detail-card"></div>
+      </section>
+
+      <section id="knowledge-view" class="knowledge-view hidden">
+        <div class="breadcrumb" id="knowledge-breadcrumb"></div>
+        <div class="knowledge-grid" id="knowledge-grid"></div>
+      </section>
+
+      <section id="knowledge-detail-view" class="detail-view hidden">
+        <div class="breadcrumb" id="knowledge-detail-breadcrumb"></div>
+        <div class="detail-card knowledge-detail-card" id="knowledge-detail-card"></div>
       </section>
     </main>
 
