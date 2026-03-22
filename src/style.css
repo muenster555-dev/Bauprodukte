@@ -293,3 +293,12 @@ footer {
   .detail-card { padding: 1.2rem; }
   .detail-grid { grid-template-columns: 1fr; }
 }
+
+
+/* Example Cards Hover Effect */
+.example-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}

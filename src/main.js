@@ -1,6 +1,7 @@
 import './style.css';
 import { categories, products } from './data/products.js';
 import { knowledgeCategories, knowledgeItems } from './data/knowledge.js';
+import { productExamples } from './data/examples.js';
 
 // === State ===
 let state = { view: 'categories', categoryId: null, productId: null };
@@ -132,6 +133,32 @@ function renderDetail(productId) {
         }).join('')}
       </ul>
     </div>
+
+    ${(() => {
+      if (typeof productExamples !== 'undefined' && productExamples[p.id] && productExamples[p.id].length > 0) {
+        const exs = productExamples[p.id];
+        return `<div class="mvvtb-section examples-section" style="margin-top: 2.5rem; border-color: #3b82f6;">
+          <h4 style="color: #60a5fa; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(59, 130, 246, 0.3);">💡 Praxis-Beispiele (Verwendbarkeitsnachweise)</h4>
+          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.2rem;">
+            ${exs.map(ex => `
+              <div class="example-card" style="display:block; background:rgba(59,130,246,0.05); border:1px solid rgba(59,130,246,0.2); padding:1.2rem; border-radius:8px; color:inherit; transition:all 0.2s;">
+                <div style="color:#ffffff; font-weight:600; font-size:1.1rem; margin-bottom:0.25rem;">${ex.manufacturer}</div>
+                <div style="color:#e2e8f0; font-size:0.95rem; margin-bottom:1rem;">${ex.productName}</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid rgba(59,130,246,0.15);">
+                  <span class="badge" style="background:rgba(59,130,246,0.15); color:#93c5fd; border:none; padding:0.3rem 0.6rem; font-size:0.8rem;">${ex.docType}</span>
+                  <span style="color:#94a3b8; font-size:0.85rem;" title="Gültig bis">⏳ ${ex.validUntil}</span>
+                </div>
+                <div style="margin-top:0.75rem; text-align:right;">
+                  <a href="${ex.link}" target="_blank" style="color:#60a5fa; font-size:0.85rem; text-decoration:none; display:inline-block; padding:0.3rem 0.6rem; border:1px solid rgba(96,165,250,0.3); border-radius:4px; transition:background 0.2s; background:rgba(96,165,250,0.05);" onmouseover="this.style.background='rgba(96,165,250,0.15)'" onmouseout="this.style.background='rgba(96,165,250,0.05)'">${ex.docNumber} 📄 ↗</a>
+                </div>
+                ${ex.note ? `<div style="margin-top:0.75rem; padding:0.6rem 0.8rem; background:rgba(245,158,11,0.1); border-left:3px solid #f59e0b; color:#fbbf24; font-size:0.82rem; border-radius:4px; line-height:1.4;"><strong>Hinweis:</strong> ${ex.note}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>`;
+      }
+      return '';
+    })()}
 
     ${p.mvvtbZusatz && p.mvvtbZusatz.length > 0 ? `<div class="mvvtb-section">
       <h4>📋 MVV TB Zusatzanforderungen</h4>
