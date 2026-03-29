@@ -113,12 +113,7 @@ function renderLanding() {
       if (toolId === 'bauprodukte') {
         navigateTo('categories');
       } else if (toolId === 'indbau') {
-        const pw = prompt('🔒 Dieses Tool ist passwortgeschützt.\nBitte Passwort eingeben:');
-        if (pw && pw.trim().toLowerCase() === 'hafenweg') {
-          navigateTo('indbau');
-        } else if (pw !== null) {
-          alert('❌ Falsches Passwort.');
-        }
+        navigateTo('indbau');
       }
     });
   });
@@ -384,6 +379,21 @@ function handlePopState(e) {
 }
 
 function applyState() {
+  // Globaler Passwortschutz für das IndBauRL Tool
+  if (state.view === 'indbau') {
+    if (!sessionStorage.getItem('indbauAuth')) {
+      const pw = prompt('🔒 Dieses Tool ist passwortgeschützt.\nBitte Passwort eingeben:');
+      if (pw && pw.trim().toLowerCase() === 'hafenweg') {
+        sessionStorage.setItem('indbauAuth', 'true');
+      } else {
+        if (pw !== null) alert('❌ Falsches Passwort.');
+        // Abbrechen und zurück zur Startseite ohne den State "indbau" zu übernehmen
+        state = { view: 'landing', categoryId: null, productId: null };
+        history.replaceState(state, '', '');
+      }
+    }
+  }
+
   landingView.classList.toggle('hidden', state.view !== 'landing');
   heroSection.classList.toggle('hidden', state.view !== 'categories');
   catGrid.classList.toggle('hidden', state.view !== 'categories');
