@@ -113,7 +113,12 @@ function renderLanding() {
       if (toolId === 'bauprodukte') {
         navigateTo('categories');
       } else if (toolId === 'indbau') {
-        navigateTo('indbau');
+        const pw = prompt('🔒 Dieses Tool ist passwortgeschützt.\nBitte Passwort eingeben:');
+        if (pw && pw.trim().toLowerCase() === 'hafenweg') {
+          navigateTo('indbau');
+        } else if (pw !== null) {
+          alert('❌ Falsches Passwort.');
+        }
       }
     });
   });
