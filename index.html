@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bauprodukte Nachweismanager – Brandschutz</title>
-  <meta name="description" content="Web-App für Prüfsachverständige Brandschutz: Nachweise und Dokumentationen für Bauprodukte und Bauarten auf der Baustelle." />
+  <title>Nees Ingenieure – Brandschutz-Tools</title>
+  <meta name="description" content="Web-App für Prüfsachverständige Brandschutz: Nachweise, Industriebaurichtlinie und mehr." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/style.css" />
@@ -13,11 +13,11 @@
   <div id="app">
     <header id="app-header">
       <div class="header-content">
-        <a class="logo" style="cursor:pointer; text-decoration:none;" onclick="window.__nav('categories')">
+        <a class="logo" style="cursor:pointer; text-decoration:none;" onclick="window.__nav('landing')">
           <img src="/nees_logo.svg" alt="Nees Ingenieure" class="logo-img" />
           <div>
-            <h1>Nachweismanager</h1>
-            <p class="subtitle">Bauprodukte & Bauarten im Brandschutz</p>
+            <h1>Brandschutz-Tools</h1>
+            <p class="subtitle">Nees Ingenieure GmbH</p>
           </div>
         </a>
         <div class="search-wrapper" id="search-wrapper">
@@ -30,7 +30,15 @@
     </header>
 
     <main id="main-content">
-      <section id="hero-section">
+      <section id="landing-view">
+        <div class="landing-hero">
+          <h2>Willkommen bei den Brandschutz-Tools</h2>
+          <p>Wählen Sie ein Tool, um loszulegen.</p>
+        </div>
+        <div class="landing-grid" id="landing-grid"></div>
+      </section>
+
+      <section id="hero-section" class="hidden">
         <h2>Welche Nachweise brauchen Sie auf der Baustelle?</h2>
         <p>Wählen Sie eine Kategorie oder suchen Sie direkt nach einem Bauprodukt.</p>
       </section>
@@ -55,6 +63,11 @@
       <section id="knowledge-detail-view" class="detail-view hidden">
         <div class="breadcrumb" id="knowledge-detail-breadcrumb"></div>
         <div class="detail-card knowledge-detail-card" id="knowledge-detail-card"></div>
+      </section>
+
+      <section id="indbau-view" class="indbau-view hidden">
+        <div class="breadcrumb" id="indbau-breadcrumb"></div>
+        <div class="indbau-wizard" id="indbau-wizard"></div>
       </section>
     </main>
 
